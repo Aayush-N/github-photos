@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  /* Smooth scrollbar for dark mode */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Masonry layout via CSS columns */
+  .masonry {
+    columns: 2;
+    column-gap: 0.5rem;
+  }
+  @media (min-width: 640px) {
+    .masonry { columns: 3; }
+  }
+  @media (min-width: 1024px) {
+    .masonry { columns: 4; }
+  }
+  @media (min-width: 1280px) {
+    .masonry { columns: 5; }
+  }
+  .masonry-item {
+    break-inside: avoid;
+  }
+}
