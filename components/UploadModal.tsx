@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import type { Album, UploadFile } from '@/lib/types'
 
@@ -44,10 +44,6 @@ export default function UploadModal({ albums, onClose, onUploadComplete }: Props
   const [creatingAlbum, setCreatingAlbum] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [localAlbums, setLocalAlbums] = useState<Album[]>(albums)
-
-  // Keep a ref to current files so concurrent workers can read fresh state
-  const filesRef = useRef<UploadFile[]>(files)
-  useEffect(() => { filesRef.current = files }, [files])
 
   // Lock body scroll
   useEffect(() => {

@@ -23,8 +23,3 @@ export interface UploadFile {
   status: 'pending' | 'uploading' | 'done' | 'error'
   error?: string
 }
-
-export interface ApiError {
-  error: string
-  details?: string
-}
